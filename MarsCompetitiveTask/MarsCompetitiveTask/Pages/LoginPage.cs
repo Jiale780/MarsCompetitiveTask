@@ -29,7 +29,7 @@ namespace MarsCompetitiveTask.Pages
         public void LoginSteps(IWebDriver testDriver)
         {
             this.testDriver = testDriver;
-            ExcelLibHelpers.PopulateInDataCollection((ConstantHelpers.ExcelPath), "LogIn");
+            ExcelLibHelpers.PopulateInDataCollection((MarsResource.ExcelPath), "LogIn");
             //var Name = ExcelLibHelpers.ReadData(rownum, "name");
             WaitHelper.WaitForElementToBeClickable(testDriver, "XPath", "//a[normalize-space()='Sign In']", 2);
             logIn.Click();
