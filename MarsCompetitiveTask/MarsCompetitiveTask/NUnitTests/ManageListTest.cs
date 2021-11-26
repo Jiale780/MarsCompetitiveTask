@@ -8,7 +8,7 @@ namespace MarsCompetitiveTask.NUnitTests
     [TestFixture]
     class ManageListTest : CommonDriver
     {
-        [Test, Order(1)]
+        [Test, Order(1), Description("View the Share Skill record")]
         public void ViewManageListingsTest()
         {
             test = extent.CreateTest("Deleted Share Skill and Manage listing is Deleted");
@@ -25,7 +25,7 @@ namespace MarsCompetitiveTask.NUnitTests
             test.Log(Status.Info, "Manage Listings of Share Skill is Deleted");
         }
 
-        [Test, Order(2)]
+        [Test, Order(2), Description("Delete the Share Skill record")]
         public void DeleteManageListingsTest()
         {
             test = extent.CreateTest("Deleted Share Skill and Manage listing is Deleted");

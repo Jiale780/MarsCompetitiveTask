@@ -279,7 +279,56 @@ namespace MarsCompetitiveTask.Pages
             endDate.SendKeys(endDateData);
         }
 
+        public void AddwithoutData(IWebDriver testDriver)
+        {
+            this.testDriver = testDriver;
+            WaitHelper.WaitForElementPresent(testDriver, "Name", "title", 2);
+            title.Click();
+        }
 
+        public void AddInvaildTitle(IWebDriver testDriver)
+        {
+            this.testDriver = testDriver;
+            WaitHelper.WaitForElementPresent(testDriver, "Name", "title", 2);
+            title.SendKeys(ExcelLibHelpers.ReadData(5, "Title"));
+        }
 
+        public void AddInvaildDescription(IWebDriver testDriver)
+        {
+            this.testDriver = testDriver;
+            WaitHelper.WaitForElementPresent(testDriver, "Name", "description", 2);
+            description.SendKeys(ExcelLibHelpers.ReadData(5, "Description"));
+        }
+
+        public void AddInvalidEnterTags(IWebDriver testDriver)
+        {
+            this.testDriver = testDriver;
+            var tagData = ExcelLibHelpers.ReadData(5, "Tag");
+            tags.SendKeys(tagData);
+            tags.SendKeys(Keys.Enter);
+        }
+
+        public void AddInvalidAvailDays(IWebDriver testDriver)
+        {
+            this.testDriver = testDriver;
+            var startDateData = ExcelLibHelpers.ReadData(5, "StartDate");
+            startDate.SendKeys(startDateData);
+            var endDateData = ExcelLibHelpers.ReadData(5, "EndDate");
+            endDate.SendKeys(endDateData);
+            monday.Click();
+            var startTimeData = ExcelLibHelpers.ReadData(5, "StartTime");
+            startTime1.SendKeys(startTimeData);
+            var EndTimeData = ExcelLibHelpers.ReadData(5, "EndTime");
+            endtime1.SendKeys(EndTimeData);
+        }
+
+        public void AddInvalidSkillExchange(IWebDriver testDriver)
+        {
+            this.testDriver = testDriver;
+            skillTradeExchange.Click();
+            var skill = ExcelLibHelpers.ReadData(5, "SkillExchange");
+            skill_Exchange.SendKeys(skill);
+            skill_Exchange.SendKeys(Keys.Enter);
+        }
     }
 }
