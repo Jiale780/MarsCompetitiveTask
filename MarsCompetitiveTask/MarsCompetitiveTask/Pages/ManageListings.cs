@@ -32,6 +32,7 @@ namespace MarsCompetitiveTask.Pages
         public IWebElement editManageListBtn => testDriver.FindElement(By.XPath("//*[@id='listing-management-section']/div[2]/div[1]/div[1]/table/tbody/tr[1]/td[8]/div/button[2]/i"));
         public IWebElement deleteManageListBtn => testDriver.FindElement(By.XPath("//*[@id='listing-management-section']/div[2]/div[1]/div[1]/table/tbody/tr/td[8]/div/button[3]/i"));
         public IWebElement deleteManageListBtn1 => testDriver.FindElement(By.XPath("/html/body/div[2]/div/div[3]/button[2]"));
+        public IWebElement deleteManageListBtn2 => testDriver.FindElement(By.XPath("/html/body/div[2]/div/div[3]/button[1]"));
         public IWebElement viewBtn => testDriver.FindElement(By.XPath("//*[@id='listing-management-section']/div[2]/div[1]/div[1]/table/tbody/tr[1]/td[8]/div/button[1]"));
         public IWebElement bodyContent => testDriver.FindElement(By.XPath("//*[@id='service-detail-section']/div[2]/div/div[2]/div[1]/div[1]/div[2]"));
         public IWebElement category1 => testDriver.FindElement(By.XPath("//*[@id='service-detail-section']/div[2]/div/div[2]/div[1]/div[1]/div[2]/div[2]/div/div/div[1]/div/div/div/div[2]"));
@@ -172,6 +173,14 @@ namespace MarsCompetitiveTask.Pages
 
             // To Check with the Pop up message for delete
             Assert.That(message, Is.EqualTo(deletePopUpMsg));
+        }
+
+        public void WithoutDelManageListBtn()
+        {
+            deleteManageListBtn.Click();
+            // Wait Implementation for delete the service textbox to be visible
+            WaitHelper.WaitForElementPresent(testDriver, "XPath", "/html/body/div[2]/div/div[3]/button[1]", 2);
+            deleteManageListBtn2.Click();
         }
     }
 }
